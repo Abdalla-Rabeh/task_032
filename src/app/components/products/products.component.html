@@ -1,0 +1,28 @@
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" />
+<div class="container bootdey">
+   
+    <div class="col-md-12">
+       
+        <div class="row product-list">
+            <div class="col-lg-3" *ngFor="let product of Products">
+                <section class="panel">
+                    <div class="pro-img-box">
+                        <img src="{{product.image}}" alt="" />
+                        <a href="#" class="adtocart">
+                            <i class="fa fa-shopping-cart"></i>
+                        </a>
+                    </div>
+
+                    <div class="panel-body text-center">
+                        <h4>
+                            <a href="#" class="pro-title">
+                                {{product.title}}
+                            </a>
+                        </h4>
+                        <p class="price">{{product.price}}</p>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+</div>
