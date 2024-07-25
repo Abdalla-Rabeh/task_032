@@ -12,6 +12,8 @@ import { HeaderComponent } from './components/header/header.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { CartsComponent } from './components/carts/carts.component';
 import { ProductsComponent } from './components/products/products.component';
+
+import { CoreModule } from './core/core.module';
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,6 +27,9 @@ import { ProductsComponent } from './components/products/products.component';
     FormsModule,
     AppRoutingModule,
     SharedModule,
+    
+
+    CoreModule,
   ],
   providers: [provideClientHydration(), provideAnimationsAsync()],
   bootstrap: [AppComponent],
