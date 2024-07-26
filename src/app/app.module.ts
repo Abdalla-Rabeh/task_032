@@ -12,14 +12,15 @@ import { HeaderComponent } from './components/header/header.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { CartsComponent } from './components/carts/carts.component';
 import { ProductsComponent } from './components/products/products.component';
-
 import { CoreModule } from './core/core.module';
+import { ProductsDetailsComponent } from './components/products-details/products-details.component';
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     CartsComponent,
     ProductsComponent,
+    ProductsDetailsComponent,
   ],
   imports: [
     BrowserModule,

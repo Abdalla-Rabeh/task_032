@@ -1,0 +1,25 @@
+<!-- product-detail.component.html -->
+<div class="container my-5">
+  <div *ngIf="items" class="row">
+    <!-- Product Image -->
+    <div class="col-md-6">
+      <img [src]="items.image" alt="Product Image" class="img-fluid" />
+    </div>
+
+    <div class="col-md-6">
+      <h1>{{ items.title }}</h1>
+      <p class="text-muted">
+        Category: <strong>{{ items.category }}</strong>
+      </p>
+      <p class="price">{{ items.price | currency : "USD" }}</p>
+      <div class="rating-info">
+        <span class="rating">
+        </span>
+        <span>({{ items.rating.count }} reviews)</span>
+      </div>
+      <p class="product-description">
+        {{ items.description }}
+      </p>
+    </div>
+  </div>
+</div>

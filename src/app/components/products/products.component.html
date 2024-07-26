@@ -1,28 +1,55 @@
-<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" />
+<link
+  href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"
+  rel="stylesheet"
+/>
 <div class="container bootdey">
-   
-    <div class="col-md-12">
-       
-        <div class="row product-list">
-            <div class="col-lg-3" *ngFor="let product of Products">
-                <section class="panel">
-                    <div class="pro-img-box">
-                        <img src="{{product.image}}" alt="" />
-                        <a href="#" class="adtocart">
-                            <i class="fa fa-shopping-cart"></i>
-                        </a>
-                    </div>
+  <div class="container">
+    <h2 class="mb-4">Select Category</h2>
+    <select
+      id="categorySelect"
+      class="custom-select"
+      (change)="filterByCategory($event)"
+    >
+      <option value="All" selected>All</option>
+      <option *ngFor="let item of Categorys" [value]="item">{{ item }}</option>
+    </select>
+  </div>
 
-                    <div class="panel-body text-center">
-                        <h4>
-                            <a href="#" class="pro-title">
-                                {{product.title}}
-                            </a>
-                        </h4>
-                        <p class="price">{{product.price}}</p>
-                    </div>
-                </section>
+  <div class="col-md-12 mb-5 mt-5">
+    <div class="row product-list">
+      <div class="col-lg-3" *ngFor="let product of Products">
+        <section class="panel">
+          <div class="pro-img-box">
+            <img src="{{ product.image }}" alt="" routerLink="/details/{{product.id}}" />
+            <button
+              class="adtocart"
+              *ngIf="!addCard[product.id]"
+              (click)="toggleQuantityInput(product.id)"
+            >
+              <i class="fa fa-shopping-cart"></i>
+            </button>
+            <div class="quantity d-flex mb-2 mt-3" *ngIf="addCard[product.id]">
+              <input
+                type="number"
+                [(ngModel)]="quantity"
+                class="form-control"
+                min="1"
+              />
+              <button (click)="addToCart(product)" class="btn btn-primary">
+                add
+              </button>
             </div>
-        </div>
+          </div>
+
+          <div class="panel-body text-center" routerLink="/details/{{product.id}}">
+            <h2 class="pro-title">
+              {{ product.title }}
+            </h2>
+
+            <p class="price">{{ product.price }} L.E</p>
+          </div>
+        </section>
+      </div>
     </div>
+  </div>
 </div>
