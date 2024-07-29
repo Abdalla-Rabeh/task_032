@@ -1,0 +1,36 @@
+<mat-toolbar>
+  <button mat-icon-button (click)="toggleDrawer()" aria-label="Toggle drawer">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <span>Store</span>
+  <span class="example-spacer"></span>
+  <button
+    mat-icon-button
+    class="example-icon favorite-icon"
+    aria-label="Favorite"
+  >
+    <mat-icon>favorite</mat-icon>
+  </button>
+  <button mat-icon-button class="example-icon" aria-label="Share">
+    <mat-icon>share</mat-icon>
+  </button>
+</mat-toolbar>
+
+<mat-drawer-container class="example-container">
+  <mat-drawer mode="side" [opened]="isDrawerOpen">
+    <mat-list role="list">
+      <mat-list-item role="listitem">
+        <a routerLink="/products"> Product </a>
+      </mat-list-item>
+      <mat-list-item role="listitem">
+        <a routerLink="/carts"> Cart </a>
+      </mat-list-item>
+     
+    </mat-list>
+  </mat-drawer>
+  <mat-drawer-content>
+    <div class="container">
+      <router-outlet />
+    </div>
+  </mat-drawer-content>
+</mat-drawer-container>
